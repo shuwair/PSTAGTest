@@ -36,7 +36,7 @@ PSTAGTest is a Java command-line application that parses, filters, sorts, and di
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourname/PSTAGTest.git
+git clone https://github.com/shuwair/PSTAGTest.git
 cd PSTAGTest
 ```
 
