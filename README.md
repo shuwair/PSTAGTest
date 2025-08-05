@@ -26,7 +26,7 @@ PSTAGTest is a Java command-line application that parses, filters, sorts, and di
 
 ## 🛠️ Prerequisites
 
-- Java 17 or higher
+- Java 21 or higher
 - Maven 3.x
 
 ---
