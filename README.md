@@ -124,33 +124,34 @@ Select output format (table/json/xml): json
 
 ```
 org.pstag
-│
-├── Main.java                    → Application entry point
-│
-├── util
-│   └── CLIArgsReader.java       → Handles CLI input
-│   └── UserOptions.java         → Stores user input
-│
-├── parser
-│   └── CarDataParser.java       → Parses XML + CSV
-│
-├── model
-│   └── Car.java                 → Car data structure
-│
+├── Main.java                        → Application entry point
 ├── filter
-│   ├── CarFilter.java           → Main filter processor
-│   └── strategies/              → Brand, Price, Date filters
-│
+│   ├── BrandFilter.java            → Filters cars by brand
+│   ├── CarFilter.java              → Applies all filters to the car list
+│   ├── CarFilterStrategy.java      → Interface for filter strategy
+│   ├── FilterCriteria.java         → Encapsulates all filter inputs
+│   ├── MaxPriceFilter.java         → Filters cars by max price
+│   └── ReleaseAfterFilter.java     → Filters cars released after a specific date
+├── model
+│   ├── Car.java                    → Represents car data
+│   └── CurrencyPrice.java          → Holds car price in multiple currencies
+├── output
+│   ├── CarOutputPrinter.java       → Interface for output formats
+│   ├── JsonOutputPrinter.java      → Outputs car data in JSON format
+│   ├── OutputPrinterFactory.java   → Returns appropriate output printer
+│   ├── TableOutputPrinter.java     → Outputs car data in tabular format
+│   └── XmlOutputPrinter.java       → Outputs car data in XML format
+├── parser
+│   └── CarDataParser.java          → Parses XML and CSV data sources
 ├── sort
-│   ├── SortField.java           → Enum + factory
-│   └── strategies/              → Sorting logic
-│
-└── output
-    ├── CarOutputPrinter.java    → Interface
-    ├── TableOutputPrinter.java  → Table output
-    ├── JsonOutputPrinter.java   → JSON output
-    ├── XmlOutputPrinter.java    → XML output
-    └── OutputPrinterFactory.java→ Output strategy factory
+│   ├── CarSortStrategy.java        → Interface for sorting strategy
+│   ├── SortByPrice.java            → Sorts cars by price
+│   ├── SortByReleaseDate.java      → Sorts cars by release date
+│   ├── SortByTypeCurrency.java     → Sorts cars by type and currency
+│   └── SortField.java              → Enum to select sorting strategy
+├── util
+│   ├── CLIArgsReader.java          → Reads CLI arguments and user inputs
+│   └── UserOptions.java            → Holds parsed user options
 ```
 
 ---
